@@ -172,3 +172,5 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+telegram_resume_bot/Amal_Asati__Resume.docx
+.gitignore

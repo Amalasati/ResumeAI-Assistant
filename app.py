@@ -108,6 +108,25 @@ def main():
                 st.subheader("Profile Summary")
                 st.write(response_json.get("Profile Summary", "No summary available"))
                 
+                # Suggested improvements
+                st.subheader("Suggested Improvements")
+                improvements = response_json.get("Improvements", {})
+                
+                if improvements:
+                    experience_improvements = improvements.get("Experience", [])
+                    if experience_improvements:
+                        st.write("**Experience:**")
+                        for item in experience_improvements:
+                            st.write(f"- {item}")
+                    
+                    skills_improvements = improvements.get("Skills", [])
+                    if skills_improvements:
+                        st.write("**Skills:**")
+                        for item in skills_improvements:
+                            st.write(f"- {item}")
+                else:
+                    st.write("No specific improvements suggested.")
+                
                 # Cold message
                 st.subheader("Cold Message")
                 st.write(response_json.get("Cold Message", "No message available"))

@@ -13,7 +13,7 @@ def configure_genai(api_key):
 def get_gemini_response(prompt):
     """Generate a response using Gemini with enhanced error handling and response validation."""
     try:
-        model = genai.GenerativeModel('gemini-pro')
+        model = genai.GenerativeModel('gemini-2.0-flash')
         response = model.generate_content(prompt)
         
         # Ensure response is not empty
@@ -91,11 +91,18 @@ def prepare_prompt(resume_text, job_description):
     
     Based on the evaluation, generate a tailored cold message to send to a recruiter or hiring manager for the position, highlighting the key qualifications and why the candidate is a strong fit for the role. Limit the cold message to 150-200 words.
     
+    Also, provide specific improvements that can be added to the resume to better match the job description. These improvements should be categorized into:
+    1. Experience - bullet points that could be added to existing experience sections
+    2. Skills - specific skills that should be added or highlighted
+    
     Provide a response in the following JSON format ONLY:
     {{
         "JD Match": A percentage (0-100) indicating the overall alignment of the resume with the job description,
         "MissingKeywords": List of specific skills, tools, or phrases missing in the resume but present in the job description,
         "Profile Summary": Detailed analysis of the match and specific improvement suggestions,
+        "Improvements": {{
+            "Skills": [List of skills to add or highlight],
+        }},
         "Cold Message": A persuasive, tailored message (50-100 words) highlighting key qualifications and enthusiasm for the role, designed to attract the recruiter or hiring manager
     }}
     """

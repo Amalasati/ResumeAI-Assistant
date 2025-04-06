@@ -123,7 +123,6 @@ def prepare_prompt(resume_text, job_description):
     Also, provide specific improvements that can be added to the resume to better match the job description. These improvements should be categorized into:
     1. Experience - bullet points that could be added to existing experience sections
     2. Skills - specific skills that should be added or highlighted
-    3. Projects - project descriptions or achievements that could enhance the profile
     
     Provide a response in the following JSON format ONLY:
     {{
